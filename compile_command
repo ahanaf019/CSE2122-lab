@@ -1,0 +1,1 @@
+g++ arp.cpp -o arp.exe; ./arp.exe < inp.txt
