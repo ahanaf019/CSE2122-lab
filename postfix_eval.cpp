@@ -1,11 +1,11 @@
 #include<iostream>
+#include<cmath>
 
 using namespace std;
 
 const int MAXSTK = 10;
 
 struct stack{
-    
     int top = 0; 
     int data[MAXSTK];
 };
@@ -24,7 +24,7 @@ int main()
         cin>>x;
         if(x != 'q') 
         {
-            cout<<"-->"<<x<<endl;
+            cout<<"->"<<x<<endl;
             eval(x, &a);
         }
     } while (x != 'q');
@@ -62,6 +62,12 @@ void eval(char x, stack *stk)
         cout<<"====>"<<q/p<<endl;
         push(stk, (q/p));
         break;
+    case '^':
+            p = pop(stk);
+            q = pop(stk);
+            cout<<"====>"<<pow(q,p)<<endl;
+            push(stk, (pow(q,p)));
+            break;
     default:
         int m = x - '0';
         push(stk, m);
